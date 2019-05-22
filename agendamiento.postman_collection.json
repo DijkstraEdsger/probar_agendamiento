@@ -1,0 +1,589 @@
+{
+	"info": {
+		"_postman_id": "549a0003-f934-4173-9c2a-9fc213ffe38a",
+		"name": "agendamiento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login & register",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "humberto3@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "c_password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "humbert",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "humbert@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user profile",
+			"item": [
+				{
+					"name": "profile get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjAxYjU2ZGE3NDUzOTgyMjBhMmM0ZTMzZDNmZjRlZDRkMTMzZmRkODg4YWY1OTBhNDc0YWQzYTI2OGZmY2VlMGFlYTBkOGI5NWZiZDQxZmI2In0.eyJhdWQiOiIxIiwianRpIjoiMDFiNTZkYTc0NTM5ODIyMGEyYzRlMzNkM2ZmNGVkNGQxMzNmZGQ4ODhhZjU5MGE0NzRhZDNhMjY4ZmZjZWUwYWVhMGQ4Yjk1ZmJkNDFmYjYiLCJpYXQiOjE1NTg0NzE3NDksIm5iZiI6MTU1ODQ3MTc0OSwiZXhwIjoxNTkwMDk0MTQ5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.sDDlDmKHCSC5Ht4x1Wn2Q21U7OwGkUbdOFfwyXQh4onp54s8XMzw5fsq4j2QrBysi5cMLhQ3q6qZ8teTfvN-BzBl2Iy-kEPG0bB7VAVNIuxVqAJGfuO7zxbbSHr1gJxakwakNwIUQnq29g2CcNrgWYtKiWV4g5h2wD1wR6CXWJm6I9MgtVUIPZ5pQmq8n2Q8mqNzZ2GPN6YhoOoYrheKOt6RmPLnfSAEgapo2wPSNRhY2I2jNc7ZJ5gwtfXdu8YhCCcwp6j9aqbhOUYOkfeEFCiaZPRi6l_1CXDFp2sLffYMwo4KUVT9VzRC3fn-pyEV3yA5euVQZD5f1azSKCfZXIECpKoSbLTNcLjc5HXbYPoru9U5sOX4jluv1d4B9myIrt5lt5tJRXb9l9pL5RCsTi5fINXhIEBUp1bGaX0dkRakPpGkpLSMLI7YHIY4kgdsY4nOweMF3lfOxWNPS39dt2aaQgX-fRBOqr0UQV8bBAi2OYWDeXBUADa5hxdgrbgQXsoBnSDPztiZhvXWHJVMKkdHcsvwgntMc7N2F44ikoeqh3LwEwWxMKbGq4wdrN1EM3DTlE87b6dRx7zxWus6icwUgRaXbyt6ovQi-FC6QfMWjqjQAeh1x3RQdZcDCbXFN1lFkdaVuTw83lPRNmcCdgFaW6s3C4ug0x3qxDUgNmw"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA0ZDgyZmY4MTAyNTlkM2M0YmNjM2YzOTg2NmI4Mjc3ZjI5YjUxOGFmOTg3MjgyNjEwY2UwMjQxZDY4NmY5MmE0NzQ2ZTQ4Mjc0ZTIyOTFjIn0.eyJhdWQiOiIxIiwianRpIjoiMDRkODJmZjgxMDI1OWQzYzRiY2MzZjM5ODY2YjgyNzdmMjliNTE4YWY5ODcyODI2MTBjZTAyNDFkNjg2ZjkyYTQ3NDZlNDgyNzRlMjI5MWMiLCJpYXQiOjE1NTg1Mzg3OTksIm5iZiI6MTU1ODUzODc5OSwiZXhwIjoxNTkwMTYxMTk4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.jvae4yiWJlJzFMPgGDNRix5wutgDKPG7s7yFvO3s7ZxU_76J6InJXAtZsVU9ZZniubeFZOGGl7M_Csm0xIOgeZQqU9B2cQ3zVUOm-q9dnbDxprsOR5KG4GNDhtPhA7z5S4ZTOS589wS3vPuha8aGr7XgcSj2_068KLINhJ_eL8DrXLPtCfUXyq0hvsh3sp7o7lnJdcFiPQ6I5pFboLJaEQMQgfzi24lZRWIqYbMPQOUTGVVVtlYORH1DhDzbVghvIMFodW3Guh-yASQP3pFvpcUGoqbWW-soQrxghWxeqpVYkN_2yvbfgUNLidfeQ-cE9xXI0KE7ExdVE9tyBDsGSkceuR68HvLigMw_G-YNDDsixZ70j24PAHcMAOu35zvh9dCcyoWeU1WAiCpq1IEogC3qi4QIyT3ephvZ3jUxa9wFrGuFomj_1anlJlQ0nqDkNeA0KwTXeQpoS3XPsZyEa7UFiIR8PJxaSYZ7D8n2PF9Rh-dCgOejfanPCKH5enNibZy8lSCCilscXq_QF5-YqdKQ7-PDR2PlCWCuXXFkfq8cmoNhlyhttqx16NOwtH9EgcQuVMeeCvC40vbu3xilbf_3qMomZkn7kdmhuZM-afYMo1gq60K0wcni6vR-mMEyrjeHjQNiLR4uqh4ho3CXJa6EfFQ1aMA57tGAe6D4v5E",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/profile?email=humbert@gmail.com&password=123",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "humbert@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjUwNDhjMTlhZGYyNTllYWE2YWJmMGMxNTIwYjlmODZhYjlmYTg5NTE5MDJhOGZmOTRiNjEwNzI1ZTY0MTM4ZTU4NThmNjYxNGE1NjhjYWI1In0.eyJhdWQiOiIxIiwianRpIjoiNTA0OGMxOWFkZjI1OWVhYTZhYmYwYzE1MjBiOWY4NmFiOWZhODk1MTkwMmE4ZmY5NGI2MTA3MjVlNjQxMzhlNTg1OGY2NjE0YTU2OGNhYjUiLCJpYXQiOjE1NTgyMDI5MzQsIm5iZiI6MTU1ODIwMjkzNCwiZXhwIjoxNTg5ODI1MzM0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aW1KvG1ksm4HsooEBAs5VFseLkrW4ep6UdgQlYwgNiuWkfi-0gCTey8gw9ielh9xMmP0EFMfOqvisuQT_7fABWUyFrdM8Y6EkwR9i3qYSeisVTQC9gjEUmDzmI-ECkvDDIYl22EA_F35DWpRYksUJGlHOtGlONFWIjM6UjU4xMa3iidTRXQEnjNLjay8n9D3fjsN-F6gAK_Y9jMlOa0xbmAfFVSpX7YlLEhUuY34lqAfCXdvo0iC42aK2r_ENgiHfREQHEWD_T4dDKrQ3iThZ9-ewXMaQc3-J7KXYt_8HS_I_zbf_knIkpIBrsXQq8C4wpnnasfGk40R_hLhktZi5YtBoX-vox4SLuh1hAHbJO51encqSzV1uafS2XF6rZU5P10amJbwtBoJu5aV3JuZBuvLlQIJsyc941fR1wb7uqcHLNKT44IVrasrkWG-VqO8lH7oDc1TqVf69CVT6cqscUz-mqQJDWh6t_PB_BfSu0TTLpW2e9dKX49y74mkPbmm4d9ZPSElVHaVGhRhoqML4uCsVqTFZxpqm9vWXSs0NTGKrKdnetzI8t5K_XB3iJR1YsxQrHfNVh66dSdCTE6x5IQo6Ej0yUmqJUQSuMElNjDwVD0TTMhBUnPKzfrfoZMXP7R6m4QZajbn82YOHOLvBL2cWiosQ_qdPDk5-sRFqvI",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cita cliente",
+			"item": [
+				{
+					"name": "login cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "humberto@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list citas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwODA2MWQ0NDY3ZDM1NWRjNzg2MWQ0YWU4NmFiNTFiYWYxZTJlMzU0Mzg2ZWZkNjM5MTFiMzZhY2QyYTMxM2RhY2JlMDQ2NDhmZTEyOTBhIn0.eyJhdWQiOiIxIiwianRpIjoiMjA4MDYxZDQ0NjdkMzU1ZGM3ODYxZDRhZTg2YWI1MWJhZjFlMmUzNTQzODZlZmQ2MzkxMWIzNmFjZDJhMzEzZGFjYmUwNDY0OGZlMTI5MGEiLCJpYXQiOjE1NTgyMDg1NzEsIm5iZiI6MTU1ODIwODU3MSwiZXhwIjoxNTg5ODMwOTcxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.L0wwnmyy-gae9DWdG8yP143yV1QL84tthZK9ibHFQd-_5RiyrzLEF7jQieelVqAndMszx5_oExljc6bwjRciLO1ZbGS2uyWi-HBovGHCgGEGSFC71eYMme8UJZbUf1s2xfJmbTQinbXQJXC9jP2u4Ya0dRoa6tHAlDzNdsu7JakZOWxAfNLgqLKXFe6jcQ_a8HTsDnVrXAAclow2LuG3-JPzZ7ga6ltyM4qR7FkSnaVBXM6nuEENpBm_jvBsYCMt3aBpGB_7dgMx3wE5PXFXTzNZ5sUE9FbohviTsZX1ekgV-21UbaQDqt4lZflT_xoc71MLIEjscbyl8VDc_FOGrqMv_BkFAV9Z-_Abtlk_HUCgFU9jWWAFMJSWHUpqPs-j8srtAQcOjqjgKx7DXstAKK3jeWZQ0QVFzKBBH_Li_Qr27k7j4aQ8NpTFlG7xofHOW4Q-XjSuuDzAkW-5FVK9I9_krJTYPsukj_BEHeU9d71dDnppC3PcVVGnLF1xacQs86tiVKpSOYMz2oJ5XOns0RNuzUraD12op9NoDKRvNyh8RfpVCLDi3MvJ4CKPBQgssX6rntB0D_JzP4Zv2wAz2Yc6P5XiEu3t99SIEQeIvl2AbeJL3-CIl0-rGFto0RKETC9UKJO-R35JQgTkCG9vthR9JEHBdi-Y2GfOUFTd1F8"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/cliente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show cita",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjAyNjJjMmJkYWI1ZjU5NDBhOTdjOWYwMGMwNGRiOWJkOTA0YmVhNWYzZmI0NDIwZTRjMzAzODM2MmM4YjAxNDNjMjY4MGEwOGQ1YTk3MDJmIn0.eyJhdWQiOiIxIiwianRpIjoiMDI2MmMyYmRhYjVmNTk0MGE5N2M5ZjAwYzA0ZGI5YmQ5MDRiZWE1ZjNmYjQ0MjBlNGMzMDM4MzYyYzhiMDE0M2MyNjgwYTA4ZDVhOTcwMmYiLCJpYXQiOjE1NTgyMDc4OTcsIm5iZiI6MTU1ODIwNzg5NywiZXhwIjoxNTg5ODMwMjk3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.MUx_oTkWbqqjFx7jZR8Sg_DIEq6Q7G1JA4MX0pQUw1dkyFnj5LFqdrG5t-YYxJlIdERp4RQVI1WNAxyGQU2uNLDdLVN1Oeuj9H-q9TcH8guYPs3qdA2Sskm9BmGwQfHru8ihlijDQi2VWTfy5gIDV5rrK8RHh2diaBsH1fFPm255u-Zra3MD5XXFiCvzJCmYLCqk-H6yQWY7NGOlUrYOhNgF3FYyRBdGtVFQjDiO6qfNl0GI8wPInK9Bxbhtgg-xXncx_i5q3TPKAEozFaOpLuqFcZOMGXYBC3amHSTyGsdcXmEy9opf6HoMpFFMMCsga8eGtng_j27Xy7bEE5OkH3DcqoO1-uYOQiL6wegfXJYovlDPZA0WPc1qRxU1-qj67OttDjrfrEVV31QY9fVYpH__szffkpNXBlQqDQPJNjOFJxEAZKTYDpv5BzSdHS8-tvM2gCfxdR-v6M1GywhWAAwzg5xnDguBynESxLURRtfPO8ywJen9SqNm6loa5i8-UBQceHgvK2pFK-ej52pbpmR5sle7DFKIrOs3_Bdr9zFqV7Uqjkf0ATBrWVVFif7DCrhFw-oP98OsGyQu2yMmpxXeJrDoTuo5sHoxuihScr5j-vZE2Tb0DpmeGCWGCx4jCtpF4VouwJhVv4Z_D-TkXMiF9hTgGK6prCp7sO0OWX8"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/1/cliente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"1",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update cita",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwODA2MWQ0NDY3ZDM1NWRjNzg2MWQ0YWU4NmFiNTFiYWYxZTJlMzU0Mzg2ZWZkNjM5MTFiMzZhY2QyYTMxM2RhY2JlMDQ2NDhmZTEyOTBhIn0.eyJhdWQiOiIxIiwianRpIjoiMjA4MDYxZDQ0NjdkMzU1ZGM3ODYxZDRhZTg2YWI1MWJhZjFlMmUzNTQzODZlZmQ2MzkxMWIzNmFjZDJhMzEzZGFjYmUwNDY0OGZlMTI5MGEiLCJpYXQiOjE1NTgyMDg1NzEsIm5iZiI6MTU1ODIwODU3MSwiZXhwIjoxNTg5ODMwOTcxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.L0wwnmyy-gae9DWdG8yP143yV1QL84tthZK9ibHFQd-_5RiyrzLEF7jQieelVqAndMszx5_oExljc6bwjRciLO1ZbGS2uyWi-HBovGHCgGEGSFC71eYMme8UJZbUf1s2xfJmbTQinbXQJXC9jP2u4Ya0dRoa6tHAlDzNdsu7JakZOWxAfNLgqLKXFe6jcQ_a8HTsDnVrXAAclow2LuG3-JPzZ7ga6ltyM4qR7FkSnaVBXM6nuEENpBm_jvBsYCMt3aBpGB_7dgMx3wE5PXFXTzNZ5sUE9FbohviTsZX1ekgV-21UbaQDqt4lZflT_xoc71MLIEjscbyl8VDc_FOGrqMv_BkFAV9Z-_Abtlk_HUCgFU9jWWAFMJSWHUpqPs-j8srtAQcOjqjgKx7DXstAKK3jeWZQ0QVFzKBBH_Li_Qr27k7j4aQ8NpTFlG7xofHOW4Q-XjSuuDzAkW-5FVK9I9_krJTYPsukj_BEHeU9d71dDnppC3PcVVGnLF1xacQs86tiVKpSOYMz2oJ5XOns0RNuzUraD12op9NoDKRvNyh8RfpVCLDi3MvJ4CKPBQgssX6rntB0D_JzP4Zv2wAz2Yc6P5XiEu3t99SIEQeIvl2AbeJL3-CIl0-rGFto0RKETC9UKJO-R35JQgTkCG9vthR9JEHBdi-Y2GfOUFTd1F8"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/1/cliente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"1",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwODA2MWQ0NDY3ZDM1NWRjNzg2MWQ0YWU4NmFiNTFiYWYxZTJlMzU0Mzg2ZWZkNjM5MTFiMzZhY2QyYTMxM2RhY2JlMDQ2NDhmZTEyOTBhIn0.eyJhdWQiOiIxIiwianRpIjoiMjA4MDYxZDQ0NjdkMzU1ZGM3ODYxZDRhZTg2YWI1MWJhZjFlMmUzNTQzODZlZmQ2MzkxMWIzNmFjZDJhMzEzZGFjYmUwNDY0OGZlMTI5MGEiLCJpYXQiOjE1NTgyMDg1NzEsIm5iZiI6MTU1ODIwODU3MSwiZXhwIjoxNTg5ODMwOTcxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.L0wwnmyy-gae9DWdG8yP143yV1QL84tthZK9ibHFQd-_5RiyrzLEF7jQieelVqAndMszx5_oExljc6bwjRciLO1ZbGS2uyWi-HBovGHCgGEGSFC71eYMme8UJZbUf1s2xfJmbTQinbXQJXC9jP2u4Ya0dRoa6tHAlDzNdsu7JakZOWxAfNLgqLKXFe6jcQ_a8HTsDnVrXAAclow2LuG3-JPzZ7ga6ltyM4qR7FkSnaVBXM6nuEENpBm_jvBsYCMt3aBpGB_7dgMx3wE5PXFXTzNZ5sUE9FbohviTsZX1ekgV-21UbaQDqt4lZflT_xoc71MLIEjscbyl8VDc_FOGrqMv_BkFAV9Z-_Abtlk_HUCgFU9jWWAFMJSWHUpqPs-j8srtAQcOjqjgKx7DXstAKK3jeWZQ0QVFzKBBH_Li_Qr27k7j4aQ8NpTFlG7xofHOW4Q-XjSuuDzAkW-5FVK9I9_krJTYPsukj_BEHeU9d71dDnppC3PcVVGnLF1xacQs86tiVKpSOYMz2oJ5XOns0RNuzUraD12op9NoDKRvNyh8RfpVCLDi3MvJ4CKPBQgssX6rntB0D_JzP4Zv2wAz2Yc6P5XiEu3t99SIEQeIvl2AbeJL3-CIl0-rGFto0RKETC9UKJO-R35JQgTkCG9vthR9JEHBdi-Y2GfOUFTd1F8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/1/cliente",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"1",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cita empleado",
+			"item": [
+				{
+					"name": "login empleado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "maria@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list citas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3N2U1MDU1ZTNkOGY1MTI5OTQ2YjUyN2JkYzYyNzFmZmQ1M2U2YTA3YjEyOWEyNTlkMTNjY2NkM2NlNjFlMmZkOTQ3OGRmN2MyZGUyN2U5In0.eyJhdWQiOiIxIiwianRpIjoiZTc3ZTUwNTVlM2Q4ZjUxMjk5NDZiNTI3YmRjNjI3MWZmZDUzZTZhMDdiMTI5YTI1OWQxM2NjY2QzY2U2MWUyZmQ5NDc4ZGY3YzJkZTI3ZTkiLCJpYXQiOjE1NTgyMTM5ODksIm5iZiI6MTU1ODIxMzk4OSwiZXhwIjoxNTg5ODM2Mzg5LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.qy_UodFR2W0-chEHFU3w_YclEf6sTXUEKMPIIyu4lDHO7sH6x-4xCQiyJdZKjlTZ6rWmwRvVv3R19cgiss21vIgBsbf3e9kYRlYW-c94AnRpZlOvvlnG2n9WkKpba86GDcsvE2dB_4ErzA0GOgqhRvJWEE7yL0Lz6tgf9BO1TergiGqoo23YYIhPmpYsxZcWmXOMd1MvHCDeKAbJcnKk_TbTnOvgNDM-l0vk1N0-bzqBS007SG0x4Hl6QsOo8RgNlY0kum6xDwct5VQi3tDo2ACTKbEFgWWi90mtZM3TzDEwx_1u-xxgh2_GQbZloP5TEiqdY8PNTelLnOwWbl6h03NNavaQodDohOP9Wvzk3c1pXpvx1OzUxzC_RoXkDGgtlaWBw-8i_xoEyd3l_hFa3mdw5fux8O4yEkkjEkREwGX3jvehPOH6tgd68E8naxMv1lgK3B0M0HEsE0PDL80700dosYO1SYW4oVRuH9YXyOYW9JE9nSBEwAx0T5Fc2XNETo-MVc4ibAElPlkSXXnt8ayTE3FKmjUhFlGCJf8OTP-Gea6e_a_oCDk82QFvX0tGZIR3QjNncDfV78r4YjZ-1K_xLD58jOefkw1x4_xJpE2IJ1n21OI-EZe3_cKgFz1HGN8NwQJ7gxBTlkiNin59NoueHdxEij-JINe48_Brw30"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/empleado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show cita",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3N2U1MDU1ZTNkOGY1MTI5OTQ2YjUyN2JkYzYyNzFmZmQ1M2U2YTA3YjEyOWEyNTlkMTNjY2NkM2NlNjFlMmZkOTQ3OGRmN2MyZGUyN2U5In0.eyJhdWQiOiIxIiwianRpIjoiZTc3ZTUwNTVlM2Q4ZjUxMjk5NDZiNTI3YmRjNjI3MWZmZDUzZTZhMDdiMTI5YTI1OWQxM2NjY2QzY2U2MWUyZmQ5NDc4ZGY3YzJkZTI3ZTkiLCJpYXQiOjE1NTgyMTM5ODksIm5iZiI6MTU1ODIxMzk4OSwiZXhwIjoxNTg5ODM2Mzg5LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.qy_UodFR2W0-chEHFU3w_YclEf6sTXUEKMPIIyu4lDHO7sH6x-4xCQiyJdZKjlTZ6rWmwRvVv3R19cgiss21vIgBsbf3e9kYRlYW-c94AnRpZlOvvlnG2n9WkKpba86GDcsvE2dB_4ErzA0GOgqhRvJWEE7yL0Lz6tgf9BO1TergiGqoo23YYIhPmpYsxZcWmXOMd1MvHCDeKAbJcnKk_TbTnOvgNDM-l0vk1N0-bzqBS007SG0x4Hl6QsOo8RgNlY0kum6xDwct5VQi3tDo2ACTKbEFgWWi90mtZM3TzDEwx_1u-xxgh2_GQbZloP5TEiqdY8PNTelLnOwWbl6h03NNavaQodDohOP9Wvzk3c1pXpvx1OzUxzC_RoXkDGgtlaWBw-8i_xoEyd3l_hFa3mdw5fux8O4yEkkjEkREwGX3jvehPOH6tgd68E8naxMv1lgK3B0M0HEsE0PDL80700dosYO1SYW4oVRuH9YXyOYW9JE9nSBEwAx0T5Fc2XNETo-MVc4ibAElPlkSXXnt8ayTE3FKmjUhFlGCJf8OTP-Gea6e_a_oCDk82QFvX0tGZIR3QjNncDfV78r4YjZ-1K_xLD58jOefkw1x4_xJpE2IJ1n21OI-EZe3_cKgFz1HGN8NwQJ7gxBTlkiNin59NoueHdxEij-JINe48_Brw30"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/1/empleado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"1",
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update cita",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3N2U1MDU1ZTNkOGY1MTI5OTQ2YjUyN2JkYzYyNzFmZmQ1M2U2YTA3YjEyOWEyNTlkMTNjY2NkM2NlNjFlMmZkOTQ3OGRmN2MyZGUyN2U5In0.eyJhdWQiOiIxIiwianRpIjoiZTc3ZTUwNTVlM2Q4ZjUxMjk5NDZiNTI3YmRjNjI3MWZmZDUzZTZhMDdiMTI5YTI1OWQxM2NjY2QzY2U2MWUyZmQ5NDc4ZGY3YzJkZTI3ZTkiLCJpYXQiOjE1NTgyMTM5ODksIm5iZiI6MTU1ODIxMzk4OSwiZXhwIjoxNTg5ODM2Mzg5LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.qy_UodFR2W0-chEHFU3w_YclEf6sTXUEKMPIIyu4lDHO7sH6x-4xCQiyJdZKjlTZ6rWmwRvVv3R19cgiss21vIgBsbf3e9kYRlYW-c94AnRpZlOvvlnG2n9WkKpba86GDcsvE2dB_4ErzA0GOgqhRvJWEE7yL0Lz6tgf9BO1TergiGqoo23YYIhPmpYsxZcWmXOMd1MvHCDeKAbJcnKk_TbTnOvgNDM-l0vk1N0-bzqBS007SG0x4Hl6QsOo8RgNlY0kum6xDwct5VQi3tDo2ACTKbEFgWWi90mtZM3TzDEwx_1u-xxgh2_GQbZloP5TEiqdY8PNTelLnOwWbl6h03NNavaQodDohOP9Wvzk3c1pXpvx1OzUxzC_RoXkDGgtlaWBw-8i_xoEyd3l_hFa3mdw5fux8O4yEkkjEkREwGX3jvehPOH6tgd68E8naxMv1lgK3B0M0HEsE0PDL80700dosYO1SYW4oVRuH9YXyOYW9JE9nSBEwAx0T5Fc2XNETo-MVc4ibAElPlkSXXnt8ayTE3FKmjUhFlGCJf8OTP-Gea6e_a_oCDk82QFvX0tGZIR3QjNncDfV78r4YjZ-1K_xLD58jOefkw1x4_xJpE2IJ1n21OI-EZe3_cKgFz1HGN8NwQJ7gxBTlkiNin59NoueHdxEij-JINe48_Brw30"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/1/empleado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"1",
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3N2U1MDU1ZTNkOGY1MTI5OTQ2YjUyN2JkYzYyNzFmZmQ1M2U2YTA3YjEyOWEyNTlkMTNjY2NkM2NlNjFlMmZkOTQ3OGRmN2MyZGUyN2U5In0.eyJhdWQiOiIxIiwianRpIjoiZTc3ZTUwNTVlM2Q4ZjUxMjk5NDZiNTI3YmRjNjI3MWZmZDUzZTZhMDdiMTI5YTI1OWQxM2NjY2QzY2U2MWUyZmQ5NDc4ZGY3YzJkZTI3ZTkiLCJpYXQiOjE1NTgyMTM5ODksIm5iZiI6MTU1ODIxMzk4OSwiZXhwIjoxNTg5ODM2Mzg5LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.qy_UodFR2W0-chEHFU3w_YclEf6sTXUEKMPIIyu4lDHO7sH6x-4xCQiyJdZKjlTZ6rWmwRvVv3R19cgiss21vIgBsbf3e9kYRlYW-c94AnRpZlOvvlnG2n9WkKpba86GDcsvE2dB_4ErzA0GOgqhRvJWEE7yL0Lz6tgf9BO1TergiGqoo23YYIhPmpYsxZcWmXOMd1MvHCDeKAbJcnKk_TbTnOvgNDM-l0vk1N0-bzqBS007SG0x4Hl6QsOo8RgNlY0kum6xDwct5VQi3tDo2ACTKbEFgWWi90mtZM3TzDEwx_1u-xxgh2_GQbZloP5TEiqdY8PNTelLnOwWbl6h03NNavaQodDohOP9Wvzk3c1pXpvx1OzUxzC_RoXkDGgtlaWBw-8i_xoEyd3l_hFa3mdw5fux8O4yEkkjEkREwGX3jvehPOH6tgd68E8naxMv1lgK3B0M0HEsE0PDL80700dosYO1SYW4oVRuH9YXyOYW9JE9nSBEwAx0T5Fc2XNETo-MVc4ibAElPlkSXXnt8ayTE3FKmjUhFlGCJf8OTP-Gea6e_a_oCDk82QFvX0tGZIR3QjNncDfV78r4YjZ-1K_xLD58jOefkw1x4_xJpE2IJ1n21OI-EZe3_cKgFz1HGN8NwQJ7gxBTlkiNin59NoueHdxEij-JINe48_Brw30",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/citas/1/empleado",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"citas",
+								"1",
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
