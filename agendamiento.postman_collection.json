@@ -6,37 +6,353 @@
 	},
 	"item": [
 		{
-			"name": "login & register",
+			"name": "login & register empresa",
 			"item": [
 				{
 					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "humberto3@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "text"
-								},
-								{
-									"key": "c_password",
-									"value": "123",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "humbert",
-									"type": "text"
-								}
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin_empresa4@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register email required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register email must be unique",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register email must be valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"invalid email\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register password required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register c_password required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register password no match c_pass",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"1234\"\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/register",
@@ -58,26 +374,337 @@
 				},
 				{
 					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "humbert@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/login",
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login no user in bd",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 401;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"nobody@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login email required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login email must be valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"some email\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login password required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login & register cliente",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto11@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register email required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -86,6 +713,506 @@
 								"1"
 							],
 							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register email must be unique",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register email must be valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"invalid email\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register password required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register c_password required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register password no match c_pass",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login no user in bd",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 401;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"nobody@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login email required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login email must be valid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"some email\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login password required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
 							"path": [
 								"api",
 								"login"
@@ -100,14 +1227,74 @@
 			"name": "user profile",
 			"item": [
 				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"// Extracting the token from the response and setting it as a global variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto2@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "profile get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b94ad415-0ae8-4ddb-ab05-332bca0e18d7",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjAxYjU2ZGE3NDUzOTgyMjBhMmM0ZTMzZDNmZjRlZDRkMTMzZmRkODg4YWY1OTBhNDc0YWQzYTI2OGZmY2VlMGFlYTBkOGI5NWZiZDQxZmI2In0.eyJhdWQiOiIxIiwianRpIjoiMDFiNTZkYTc0NTM5ODIyMGEyYzRlMzNkM2ZmNGVkNGQxMzNmZGQ4ODhhZjU5MGE0NzRhZDNhMjY4ZmZjZWUwYWVhMGQ4Yjk1ZmJkNDFmYjYiLCJpYXQiOjE1NTg0NzE3NDksIm5iZiI6MTU1ODQ3MTc0OSwiZXhwIjoxNTkwMDk0MTQ5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.sDDlDmKHCSC5Ht4x1Wn2Q21U7OwGkUbdOFfwyXQh4onp54s8XMzw5fsq4j2QrBysi5cMLhQ3q6qZ8teTfvN-BzBl2Iy-kEPG0bB7VAVNIuxVqAJGfuO7zxbbSHr1gJxakwakNwIUQnq29g2CcNrgWYtKiWV4g5h2wD1wR6CXWJm6I9MgtVUIPZ5pQmq8n2Q8mqNzZ2GPN6YhoOoYrheKOt6RmPLnfSAEgapo2wPSNRhY2I2jNc7ZJ5gwtfXdu8YhCCcwp6j9aqbhOUYOkfeEFCiaZPRi6l_1CXDFp2sLffYMwo4KUVT9VzRC3fn-pyEV3yA5euVQZD5f1azSKCfZXIECpKoSbLTNcLjc5HXbYPoru9U5sOX4jluv1d4B9myIrt5lt5tJRXb9l9pL5RCsTi5fINXhIEBUp1bGaX0dkRakPpGkpLSMLI7YHIY4kgdsY4nOweMF3lfOxWNPS39dt2aaQgX-fRBOqr0UQV8bBAi2OYWDeXBUADa5hxdgrbgQXsoBnSDPztiZhvXWHJVMKkdHcsvwgntMc7N2F44ikoeqh3LwEwWxMKbGq4wdrN1EM3DTlE87b6dRx7zxWus6icwUgRaXbyt6ovQi-FC6QfMWjqjQAeh1x3RQdZcDCbXFN1lFkdaVuTw83lPRNmcCdgFaW6s3C4ug0x3qxDUgNmw"
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Accept",
@@ -116,15 +1303,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/profile",
-							"protocol": "http",
+							"raw": "{{url}}/api/profile",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"profile"
@@ -135,43 +1317,229 @@
 				},
 				{
 					"name": "profile update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e09146f3-73fe-455c-90eb-17f65bd9ade1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA0ZDgyZmY4MTAyNTlkM2M0YmNjM2YzOTg2NmI4Mjc3ZjI5YjUxOGFmOTg3MjgyNjEwY2UwMjQxZDY4NmY5MmE0NzQ2ZTQ4Mjc0ZTIyOTFjIn0.eyJhdWQiOiIxIiwianRpIjoiMDRkODJmZjgxMDI1OWQzYzRiY2MzZjM5ODY2YjgyNzdmMjliNTE4YWY5ODcyODI2MTBjZTAyNDFkNjg2ZjkyYTQ3NDZlNDgyNzRlMjI5MWMiLCJpYXQiOjE1NTg1Mzg3OTksIm5iZiI6MTU1ODUzODc5OSwiZXhwIjoxNTkwMTYxMTk4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.jvae4yiWJlJzFMPgGDNRix5wutgDKPG7s7yFvO3s7ZxU_76J6InJXAtZsVU9ZZniubeFZOGGl7M_Csm0xIOgeZQqU9B2cQ3zVUOm-q9dnbDxprsOR5KG4GNDhtPhA7z5S4ZTOS589wS3vPuha8aGr7XgcSj2_068KLINhJ_eL8DrXLPtCfUXyq0hvsh3sp7o7lnJdcFiPQ6I5pFboLJaEQMQgfzi24lZRWIqYbMPQOUTGVVVtlYORH1DhDzbVghvIMFodW3Guh-yASQP3pFvpcUGoqbWW-soQrxghWxeqpVYkN_2yvbfgUNLidfeQ-cE9xXI0KE7ExdVE9tyBDsGSkceuR68HvLigMw_G-YNDDsixZ70j24PAHcMAOu35zvh9dCcyoWeU1WAiCpq1IEogC3qi4QIyT3ephvZ3jUxa9wFrGuFomj_1anlJlQ0nqDkNeA0KwTXeQpoS3XPsZyEa7UFiIR8PJxaSYZ7D8n2PF9Rh-dCgOejfanPCKH5enNibZy8lSCCilscXq_QF5-YqdKQ7-PDR2PlCWCuXXFkfq8cmoNhlyhttqx16NOwtH9EgcQuVMeeCvC40vbu3xilbf_3qMomZkn7kdmhuZM-afYMo1gq60K0wcni6vR-mMEyrjeHjQNiLR4uqh4ho3CXJa6EfFQ1aMA57tGAe6D4v5E",
+								"value": "Bearer {{token}}",
 								"type": "text"
 							},
 							{
-								"key": "Accept",
+								"key": "Content-Type",
+								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/profile?email=humbert@gmail.com&password=123",
-							"protocol": "http",
+							"raw": "{{url}}/api/profile",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile update email required",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e09146f3-73fe-455c-90eb-17f65bd9ade1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
 							],
-							"query": [
-								{
-									"key": "email",
-									"value": "humbert@gmail.com"
-								},
-								{
-									"key": "password",
-									"value": "123"
-								}
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile update email invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e09146f3-73fe-455c-90eb-17f65bd9ade1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"invalid email\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile update email must be unique",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e09146f3-73fe-455c-90eb-17f65bd9ade1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 400;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile update password optional",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e09146f3-73fe-455c-90eb-17f65bd9ade1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
 							]
 						}
 					},
@@ -179,12 +1547,24 @@
 				},
 				{
 					"name": "profile delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58544d44-112a-412e-88ad-18d406e087f6",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 401;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjUwNDhjMTlhZGYyNTllYWE2YWJmMGMxNTIwYjlmODZhYjlmYTg5NTE5MDJhOGZmOTRiNjEwNzI1ZTY0MTM4ZTU4NThmNjYxNGE1NjhjYWI1In0.eyJhdWQiOiIxIiwianRpIjoiNTA0OGMxOWFkZjI1OWVhYTZhYmYwYzE1MjBiOWY4NmFiOWZhODk1MTkwMmE4ZmY5NGI2MTA3MjVlNjQxMzhlNTg1OGY2NjE0YTU2OGNhYjUiLCJpYXQiOjE1NTgyMDI5MzQsIm5iZiI6MTU1ODIwMjkzNCwiZXhwIjoxNTg5ODI1MzM0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aW1KvG1ksm4HsooEBAs5VFseLkrW4ep6UdgQlYwgNiuWkfi-0gCTey8gw9ielh9xMmP0EFMfOqvisuQT_7fABWUyFrdM8Y6EkwR9i3qYSeisVTQC9gjEUmDzmI-ECkvDDIYl22EA_F35DWpRYksUJGlHOtGlONFWIjM6UjU4xMa3iidTRXQEnjNLjay8n9D3fjsN-F6gAK_Y9jMlOa0xbmAfFVSpX7YlLEhUuY34lqAfCXdvo0iC42aK2r_ENgiHfREQHEWD_T4dDKrQ3iThZ9-ewXMaQc3-J7KXYt_8HS_I_zbf_knIkpIBrsXQq8C4wpnnasfGk40R_hLhktZi5YtBoX-vox4SLuh1hAHbJO51encqSzV1uafS2XF6rZU5P10amJbwtBoJu5aV3JuZBuvLlQIJsyc941fR1wb7uqcHLNKT44IVrasrkWG-VqO8lH7oDc1TqVf69CVT6cqscUz-mqQJDWh6t_PB_BfSu0TTLpW2e9dKX49y74mkPbmm4d9ZPSElVHaVGhRhoqML4uCsVqTFZxpqm9vWXSs0NTGKrKdnetzI8t5K_XB3iJR1YsxQrHfNVh66dSdCTE6x5IQo6Ej0yUmqJUQSuMElNjDwVD0TTMhBUnPKzfrfoZMXP7R6m4QZajbn82YOHOLvBL2cWiosQ_qdPDk5-sRFqvI",
+								"value": "Bearer {{token}}",
 								"type": "text"
 							},
 							{
@@ -194,15 +1574,51 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/profile",
-							"protocol": "http",
+							"raw": "{{url}}/api/profile",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile delete unauthenticated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58544d44-112a-412e-88ad-18d406e087f6",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 401;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer "
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
 							"path": [
 								"api",
 								"profile"
@@ -218,6 +1634,26 @@
 			"item": [
 				{
 					"name": "login cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a010a42-f3f9-49e9-a0d3-754f947e433d",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"tests[\"Body has token\"] = responseBody.has(\"token\");",
+									"",
+									"// Extracting the token from the response and setting it as an environment variable.",
+									"pm.environment.set(\"token\", jsonData.success['token']);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -262,7 +1698,7 @@
 							{
 								"key": "Authorization",
 								"type": "text",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwODA2MWQ0NDY3ZDM1NWRjNzg2MWQ0YWU4NmFiNTFiYWYxZTJlMzU0Mzg2ZWZkNjM5MTFiMzZhY2QyYTMxM2RhY2JlMDQ2NDhmZTEyOTBhIn0.eyJhdWQiOiIxIiwianRpIjoiMjA4MDYxZDQ0NjdkMzU1ZGM3ODYxZDRhZTg2YWI1MWJhZjFlMmUzNTQzODZlZmQ2MzkxMWIzNmFjZDJhMzEzZGFjYmUwNDY0OGZlMTI5MGEiLCJpYXQiOjE1NTgyMDg1NzEsIm5iZiI6MTU1ODIwODU3MSwiZXhwIjoxNTg5ODMwOTcxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.L0wwnmyy-gae9DWdG8yP143yV1QL84tthZK9ibHFQd-_5RiyrzLEF7jQieelVqAndMszx5_oExljc6bwjRciLO1ZbGS2uyWi-HBovGHCgGEGSFC71eYMme8UJZbUf1s2xfJmbTQinbXQJXC9jP2u4Ya0dRoa6tHAlDzNdsu7JakZOWxAfNLgqLKXFe6jcQ_a8HTsDnVrXAAclow2LuG3-JPzZ7ga6ltyM4qR7FkSnaVBXM6nuEENpBm_jvBsYCMt3aBpGB_7dgMx3wE5PXFXTzNZ5sUE9FbohviTsZX1ekgV-21UbaQDqt4lZflT_xoc71MLIEjscbyl8VDc_FOGrqMv_BkFAV9Z-_Abtlk_HUCgFU9jWWAFMJSWHUpqPs-j8srtAQcOjqjgKx7DXstAKK3jeWZQ0QVFzKBBH_Li_Qr27k7j4aQ8NpTFlG7xofHOW4Q-XjSuuDzAkW-5FVK9I9_krJTYPsukj_BEHeU9d71dDnppC3PcVVGnLF1xacQs86tiVKpSOYMz2oJ5XOns0RNuzUraD12op9NoDKRvNyh8RfpVCLDi3MvJ4CKPBQgssX6rntB0D_JzP4Zv2wAz2Yc6P5XiEu3t99SIEQeIvl2AbeJL3-CIl0-rGFto0RKETC9UKJO-R35JQgTkCG9vthR9JEHBdi-Y2GfOUFTd1F8"
+								"value": "Bearer hulkjjk"
 							},
 							{
 								"key": "Accept",
@@ -584,6 +2020,1002 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "admin-empresa",
+			"item": [
+				{
+					"name": "login administrador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f37061c-0f1e-4ac4-9bb8-1908173bfff1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"tests[\"Body has token\"] = responseBody.has(\"token\");",
+									"",
+									"// Extracting the token from the response and setting it as an environment variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aad39718-cbf9-4136-b87a-0306b1444ba3",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"//var jsonData = pm.response.json();",
+									"",
+									"//tests[\"Body has token\"] = responseBody.has(\"token\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empleados list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/empleados",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"empleados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empleado details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/empleados/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"empleados",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empleado store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto16@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/empleados",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"empleados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empleado update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"humberto172@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/empleados/172",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"empleados",
+								"172"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empleado delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/empleados/20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"empleados",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "servicios list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/servicios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "servicio details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/servicios/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"servicios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "servicio store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre_servicio\": \"Servicio nuevo empresa 1\",\n    \"descripcion\": \"Servicio nujevo empresa 1\",\n    \"direccion\": \"direccion\",\n    \"horario\": \"2019-05-15\",\n    \"duracion\": \"10:00:00\",\n    \"publicar\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/servicios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "servicio update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre_servicio\": \"Servicio 1 empresa 1 new\",\n    \"descripcion\": \"Servicio 1 empresa 1 new\",\n    \"direccion\": \"direccion\",\n    \"horario\": \"2019-05-15\",\n    \"duracion\": \"10:00:00\",\n    \"publicar\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/servicios/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"servicios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "servicio delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/servicios/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"servicios",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "servicio-empleado store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_empleado\": 21,\n\t\"id_servicio\": 1\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/servicios/empleados",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"servicios",
+								"empleados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "servicio-empleado delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/admin/servicios/1/empleados/21",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"servicios",
+								"1",
+								"empleados",
+								"21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "empleado",
+			"item": [
+				{
+					"name": "login empleado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f37061c-0f1e-4ac4-9bb8-1908173bfff1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"tests[\"Body has token\"] = responseBody.has(\"token\");",
+									"",
+									"// Extracting the token from the response and setting it as an environment variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"empleado11@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aad39718-cbf9-4136-b87a-0306b1444ba3",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"//var jsonData = pm.response.json();",
+									"",
+									"//tests[\"Body has token\"] = responseBody.has(\"token\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clientes list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/empleado/clientes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cliente details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/empleado/clientes/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"clientes",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "citas list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/empleado/citas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"citas"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cita details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/empleado/citas/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"citas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cita store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_cliente\": 8,\n\t\"id_empleado\": 4,\n\t\"id_servicio\": 1,\n\t\"fecha_cita\": \"2019-5-20\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:00\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/empleado/citas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"citas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "login cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f37061c-0f1e-4ac4-9bb8-1908173bfff1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"tests[\"Body has token\"] = responseBody.has(\"token\");",
+									"",
+									"// Extracting the token from the response and setting it as an environment variable.",
+									"pm.environment.set(\"token\", jsonData.data['token']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"cliente11@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aad39718-cbf9-4136-b87a-0306b1444ba3",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"//var jsonData = pm.response.json();",
+									"",
+									"//tests[\"Body has token\"] = responseBody.has(\"token\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cita store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_cliente\": 8,\n\t\"id_empleado\": 4,\n\t\"id_servicio\": 1,\n\t\"fecha_cita\": \"2019-5-20\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:00\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/cliente/citas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cliente",
+								"citas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reservar cita online",
+			"item": [
+				{
+					"name": "show empresa web page",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/empresa-profile/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empresa-profile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reservar cita",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer hgfhdgjhdfg",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/empresa-profile/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empresa-profile",
+								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "455603e3-3aa2-46e9-a2e6-f0c4423bee10",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2a8c3e34-314d-4b09-82ef-1e590c27d628",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8deeacce-7a01-4e74-8549-aa3715bc79fb",
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"id": "8d923648-0b60-4d9e-9445-cca5808b1169",
+			"key": "token",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
