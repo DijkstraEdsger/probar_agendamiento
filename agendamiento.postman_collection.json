@@ -45,7 +45,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"admin_empresa4@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"humbertomartinez900519@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/register",
@@ -95,15 +95,10 @@
 							"raw": "{\n\t\"email\": \"\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register"
@@ -144,18 +139,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register"
@@ -199,15 +189,10 @@
 							"raw": "{\n\t\"email\": \"invalid email\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register"
@@ -248,18 +233,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register"
@@ -300,18 +280,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"\"\n}"
+							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register"
@@ -352,18 +327,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"1234\"\n}"
+							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"1234\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"register"
@@ -405,7 +375,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"humbertomartinez900519@gmail.com\",\n\t\"password\": \"123\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/login",
@@ -428,7 +398,7 @@
 							"script": {
 								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 401;",
+									"tests[\"Status code is 401\"] = responseCode.code === 401;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -476,7 +446,7 @@
 							"script": {
 								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -524,7 +494,7 @@
 							"script": {
 								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -549,7 +519,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"some email\",\n\t\"password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"invalid email\",\n\t\"password\": \"123\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/login",
@@ -572,7 +542,7 @@
 							"script": {
 								"id": "7d5fd314-bb9a-4608-818b-b530d93850e1",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -597,7 +567,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"\"\n}"
+							"raw": "{\n\t\"email\": \"admin_empresa1@gmail.com\",\n\t\"password\": \"\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/login",
@@ -654,16 +624,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto11@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"cliente13@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/register",
+							"raw": "{{url}}/api/register/cliente",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"register"
+								"register",
+								"cliente"
 							]
 						}
 					},
@@ -677,7 +648,7 @@
 							"script": {
 								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -704,18 +675,14 @@
 							"raw": "{\n\t\"email\": \"\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register/cliente",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"register",
+								"cliente"
 							]
 						}
 					},
@@ -729,7 +696,7 @@
 							"script": {
 								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -753,21 +720,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"cliente11@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register/cliente",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"register",
+								"cliente"
 							]
 						}
 					},
@@ -781,7 +744,7 @@
 							"script": {
 								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -808,18 +771,14 @@
 							"raw": "{\n\t\"email\": \"invalid email\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register/cliente",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"register",
+								"cliente"
 							]
 						}
 					},
@@ -833,7 +792,7 @@
 							"script": {
 								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -857,21 +816,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"cliente11@gmail.com\",\n\t\"password\": \"\",\n\t\"c_password\": \"123\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register/cliente",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"register",
+								"cliente"
 							]
 						}
 					},
@@ -885,7 +840,7 @@
 							"script": {
 								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -909,21 +864,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"\"\n}"
+							"raw": "{\n\t\"email\": \"cliente11@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register/cliente",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"register",
+								"cliente"
 							]
 						}
 					},
@@ -937,7 +888,7 @@
 							"script": {
 								"id": "be974a9d-6eb5-4c65-8413-b307ffa36f58",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 400;",
+									"tests[\"Status code is 400\"] = responseCode.code === 400;",
 									"",
 									"// Parsing the response returned by the request.",
 									"var jsonData = pm.response.json();",
@@ -961,21 +912,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto9@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"1234\"\n}"
+							"raw": "{\n\t\"email\": \"cliente@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"1234\"\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
-							"protocol": "http",
+							"raw": "{{url}}/api/register/cliente",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"register",
+								"cliente"
 							]
 						}
 					},
@@ -1014,7 +961,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto@gmail.com\",\n\t\"password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"cliente11@gmail.com\",\n\t\"password\": \"123\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/login",
@@ -2025,7 +1972,7 @@
 			"name": "admin-empresa",
 			"item": [
 				{
-					"name": "login administrador",
+					"name": "login admin-empresa",
 					"event": [
 						{
 							"listen": "test",
@@ -2199,7 +2146,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto16@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"empleado37@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\",\n\t\"rol\": \"\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/admin/empleados",
@@ -2233,10 +2180,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"email\": \"humberto172@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\"\n}"
+							"raw": "{\n\t\"email\": \"empleado180@gmail.com\",\n\t\"password\": \"123\",\n\t\"c_password\": \"123\",\n\t\"rol\": \"empleado\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/admin/empleados/172",
+							"raw": "{{url}}/api/admin/empleados/18",
 							"host": [
 								"{{url}}"
 							],
@@ -2244,7 +2191,7 @@
 								"api",
 								"admin",
 								"empleados",
-								"172"
+								"18"
 							]
 						}
 					},
@@ -2267,7 +2214,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/admin/empleados/20",
+							"raw": "{{url}}/api/admin/empleados/18",
 							"host": [
 								"{{url}}"
 							],
@@ -2275,7 +2222,7 @@
 								"api",
 								"admin",
 								"empleados",
-								"20"
+								"18"
 							]
 						}
 					},
@@ -2360,7 +2307,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre_servicio\": \"Servicio nuevo empresa 1\",\n    \"descripcion\": \"Servicio nujevo empresa 1\",\n    \"direccion\": \"direccion\",\n    \"horario\": \"2019-05-15\",\n    \"duracion\": \"10:00:00\",\n    \"publicar\": true\n}"
+							"raw": "{\n    \"nombre_servicio\": \"Servicio 3 empresa 1\",\n    \"descripcion\": \"Servicio nujevo empresa 1\",\n    \"horario\": \"2019-05-15\",\n    \"duracion\": \"10:00:00\",\n    \"publicar\": false,\n    \"id_empleados\": [2, 4] \n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/admin/servicios",
@@ -2394,10 +2341,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre_servicio\": \"Servicio 1 empresa 1 new\",\n    \"descripcion\": \"Servicio 1 empresa 1 new\",\n    \"direccion\": \"direccion\",\n    \"horario\": \"2019-05-15\",\n    \"duracion\": \"10:00:00\",\n    \"publicar\": true\n}"
+							"raw": "{\n    \"nombre_servicio\": \"Servicio updated\",\n    \"descripcion\": \"Servicio 1 empresa 1 new\",\n    \"horario\": \"2019-05-15\",\n    \"duracion\": \"10:00:00\",\n    \"publicar\": true,\n    \"id_empleados\": []\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/admin/servicios/1",
+							"raw": "{{url}}/api/admin/servicios/9",
 							"host": [
 								"{{url}}"
 							],
@@ -2405,7 +2352,7 @@
 								"api",
 								"admin",
 								"servicios",
-								"1"
+								"9"
 							]
 						}
 					},
@@ -2428,7 +2375,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/admin/servicios/5",
+							"raw": "{{url}}/api/admin/servicios/13",
 							"host": [
 								"{{url}}"
 							],
@@ -2436,75 +2383,41 @@
 								"api",
 								"admin",
 								"servicios",
-								"5"
+								"13"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "servicio-empleado store",
+					"name": "empresa update",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
+								"type": "text",
+								"value": "Bearer {{token}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"type": "text",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id_empleado\": 21,\n\t\"id_servicio\": 1\n}"
+							"raw": "{\n    \"nombre_empresa\": \"Y\",\n    \"url_reserva\": \"y\",\n    \"descripcion\": \"Descripcion de X\",\n    \"direccion\": \"Direccion de X\",\n    \"horario\": \"\",\n    \"sitio_web\": \"\",\n    \"telefono\": 55\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/admin/servicios/empleados",
+							"raw": "{{url}}/api/admin/empresa",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"admin",
-								"servicios",
-								"empleados"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "servicio-empleado delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/admin/servicios/1/empleados/21",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"admin",
-								"servicios",
-								"1",
-								"empleados",
-								"21"
+								"empresa"
 							]
 						}
 					},
@@ -2757,7 +2670,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id_cliente\": 8,\n\t\"id_empleado\": 4,\n\t\"id_servicio\": 1,\n\t\"fecha_cita\": \"2019-5-20\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:00\"\n}"
+							"raw": "{\n\t\"id_cliente\": 8,\n\t\"id_servicio\": 1,\n\t\"fecha_cita\": \"2019-5-27\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:00\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/empleado/citas",
@@ -2768,6 +2681,41 @@
 								"api",
 								"empleado",
 								"citas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cita update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_cliente\": 8,\n\t\"id_servicio\": 1,\n\t\"fecha_cita\": \"2019-5-28\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:00\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/empleado/citas/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"empleado",
+								"citas",
+								"1"
 							]
 						}
 					},
@@ -2892,7 +2840,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id_cliente\": 8,\n\t\"id_empleado\": 4,\n\t\"id_servicio\": 1,\n\t\"fecha_cita\": \"2019-5-20\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:00\"\n}"
+							"raw": "{\n\t\"id_empleado\": 4,\n\t\"id_servicio\": 1,\n\t\"fecha_cita\": \"2019-5-25\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:00\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/cliente/citas",
@@ -2903,6 +2851,72 @@
 								"api",
 								"cliente",
 								"citas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cita details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/cliente/citas/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cliente",
+								"citas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cita update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_empleado\": 4,\n\t\"fecha_cita\": \"2019-5-15\",\n\t\"hora_cita\": \"10:00:00\",\n\t\"duracion\": \"00:01:30\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/cliente/citas/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"cliente",
+								"citas",
+								"1"
 							]
 						}
 					},
@@ -2925,14 +2939,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/empresa-profile/1",
+							"raw": "{{url}}/api/empresa-profile/admin_empresa1@gmail.com",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"empresa-profile",
-								"1"
+								"admin_empresa1@gmail.com"
 							]
 						}
 					},
@@ -2940,12 +2954,33 @@
 				},
 				{
 					"name": "reservar cita",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3a018f65-6ef6-40de-bcd8-283230184f9f",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// Parsing the response returned by the request.",
+									"var jsonData = pm.response.json();",
+									"",
+									"tests[\"Body has url_cancelar_cita\"] = responseBody.has(\"url_cancelar_cita\");",
+									"",
+									"// Extracting the token from the response and setting it as an environment variable.",
+									"pm.environment.set(\"url_cancelar_cita\", jsonData.data['url_cancelar_cita']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer hgfhdgjhdfg",
+								"value": "Bearer {{token}}",
 								"type": "text"
 							},
 							{
@@ -2959,21 +2994,56 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id_empleado\": 4,\n\t\"id_servicio\": 1,\n\t\"inicio_cita\": \"2019-10-26 03:20:00\", \n\t\"fin_cita\": \"2019-10-26 03:25:00\",\n\t\"duracion\": 60\n}"
+						},
 						"url": {
-							"raw": "{{url}}/api/empresa-profile/1",
+							"raw": "{{url}}/api/empresa-profile/admin_empresa1@gmail.com",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"empresa-profile",
+								"admin_empresa1@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelar cita",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/empresa-profile/admin_empresa1@gmail.com/citas/34",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
 								"1"
 							],
-							"query": [
-								{
-									"key": "",
-									"value": ""
-								}
+							"port": "8000",
+							"path": [
+								"api",
+								"empresa-profile",
+								"admin_empresa1@gmail.com",
+								"citas",
+								"34"
 							]
 						}
 					},
@@ -3006,13 +3076,13 @@
 	],
 	"variable": [
 		{
-			"id": "8deeacce-7a01-4e74-8549-aa3715bc79fb",
+			"id": "0c01fdbf-c93d-40d6-b450-d64d03161ebc",
 			"key": "url",
 			"value": "http://127.0.0.1:8000",
 			"type": "string"
 		},
 		{
-			"id": "8d923648-0b60-4d9e-9445-cca5808b1169",
+			"id": "50c7e8c6-1b1f-45a5-b207-0b4788bd882f",
 			"key": "token",
 			"value": "",
 			"type": "string"
